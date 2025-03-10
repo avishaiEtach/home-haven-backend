@@ -43,7 +43,9 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(process.env.NODE_ENV === "production" ? "/api" : "/", ...routes);
+// app.use(process.env.NODE_ENV === "production" ? "/api" : "/", ...routes);
+
+app.use("/", ...routes);
 
 connectSockets(server); // for socket
 

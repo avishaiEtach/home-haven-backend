@@ -9,7 +9,6 @@ import dotenv from "dotenv";
 require("./db/models");
 
 const path = require("path");
-// require("dotenv").config();
 dotenv.config();
 
 const MONGO_URL = process.env.MONGO_URL;
@@ -29,7 +28,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.resolve(__dirname, "public")));
 } else {
   const corsOptions = {
-    origin: ["http://localhost:3000", "http://localhost:3002"],
+    origin: "*",
     credentials: true,
   };
   app.use(cors(corsOptions));

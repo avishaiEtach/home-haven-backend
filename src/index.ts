@@ -24,15 +24,21 @@ const server = http.createServer(app); // for socket
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.resolve(__dirname, "public")));
-} else {
-  const corsOptions = {
-    origin: "*",
-    credentials: true,
-  };
-  app.use(cors(corsOptions));
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.resolve(__dirname, "public")));
+// } else {
+//   const corsOptions = {
+//     origin: "*",
+//     credentials: true,
+//   };
+//   app.use(cors(corsOptions));
+// }
+
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser());

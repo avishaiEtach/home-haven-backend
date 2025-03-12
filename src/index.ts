@@ -38,7 +38,7 @@ const corsOptions = {
   origin: [
     "http://localhost:3000",
     "http://localhost:3002",
-    process.env.FRONTEND_URL as string,
+    "https://homehaven-2ysw.onrender.com",
   ],
   credentials: true,
 };
